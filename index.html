@@ -468,6 +468,31 @@
     .contact-links { justify-content: center; }
     footer { padding: 1.5rem; }
   }
+
+  /* Curated project case studies */
+  .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; }
+  .project-card { padding: 2.3rem; }
+  .project-card.flagship { grid-column: 1 / -1; display: block; padding: clamp(2rem, 4vw, 3.5rem); border-radius: 18px; }
+  .project-card.flagship .project-content { max-width: 950px; }
+  .project-card.flagship .project-title { font-size: clamp(1.75rem, 3vw, 2.6rem); max-width: 790px; line-height: 1.15; }
+  .project-card.flagship .project-desc { max-width: 780px; font-size: 1rem; margin-bottom: 1.5rem; }
+  .project-card.project-secondary { min-height: 335px; }
+  .project-card.project-secondary .project-content { display: flex; flex-direction: column; height: 100%; }
+  .project-card.project-secondary .project-title { font-size: 1.45rem; }
+  .results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 1.3rem 0; padding: 1.25rem 0; gap: 1rem; }
+  .result-item { display: flex; flex-direction: column; gap: .3rem; }
+  .result-item strong { font-family: 'DM Serif Display', serif; font-size: clamp(1.4rem, 2.7vw, 2rem); font-weight: 400; line-height: 1.2; }
+  .result-item strong span { font-family: 'DM Sans', sans-serif; font-size: .63em; font-weight: 400; color: var(--muted); }
+  .result-item small { color: var(--muted); font-size: .76rem; }
+  .project-evidence, .project-caveat { color: var(--muted); font-size: .88rem; line-height: 1.8; margin-bottom: .9rem; max-width: 840px; }
+  .project-evidence strong, .project-caveat strong { color: var(--ink); font-weight: 500; }
+  .project-caveat { padding: .9rem 1rem; background: #F4F6F4; border-left: 2px solid var(--accent); margin: 1rem 0 1.5rem; }
+  .project-text-link { display: inline-block; color: var(--accent); text-decoration: none; font-size: .87rem; font-weight: 500; margin-top: 1.25rem; }
+  .project-text-link:hover, .archive-note a:hover { text-decoration: underline; }
+  .project-link-note { color: var(--muted); font-size: .73rem; margin-top: .4rem; }
+  .archive-note { margin-top: 2rem; color: var(--muted); font-size: .86rem; }
+  .archive-note a { color: var(--accent); text-decoration: none; }
+  @media (max-width: 680px) { .projects-grid { grid-template-columns: 1fr; } .project-card.flagship { grid-column: auto; } .results-grid { grid-template-columns: 1fr; } .project-card.project-secondary { min-height: 0; } }
 </style>
 </head>
 <body>
@@ -497,7 +522,7 @@
       <span class="tag">Python · R</span>
     </div>
     <div class="hero-cta">
-      <a href="#about" class="btn btn-primary">View projects &darr;</a>
+      <a href="#projects" class="btn btn-primary">View projects &darr;</a>
       <a href="Aja_Starkey_CV.pdf" download class="btn btn-outline">Download CV &darr;</a>
       <a href="https://github.com/AjaStarkey" target="_blank" class="btn btn-outline">GitHub &#x2197;</a>
     </div>
@@ -568,174 +593,53 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
-    <p class="section-label">Portfolio</p>
-    <h2 class="section-title">Projects</h2>
-    <p class="section-sub">Applied machine learning, deep learning, natural language processing, and statistical methods to real-world problems in healthcare.</p>
+    <p class="section-label">Selected Work / 2026</p>
+    <h2 class="section-title">Research &amp; engineering projects</h2>
+    <p class="section-sub">Three selected projects spanning interpretable biomedical machine learning, medical computer vision, and transformer-based natural language processing. Each emphasizes the question, methodology, and evidence.</p>
   </div>
-
   <div class="projects-grid reveal">
-
-    <!-- Skin Cancer Detection -->
-<!-- Skin Cancer Detection -->
-    <a class="project-card" href="https://github.com/AjaStarkey/5511-Introduction-to-Deep-Learning-Class-Projects/blob/main/A.Starkey-Skin%20Cancer%20Detection%20using%20CNNs.ipynb" target="_blank" style="--icon-bg: #EEE8F5;">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">MSDS-5511 · Deep Learning</p>
-      <h3 class="project-title">Skin Cancer Detection using CNNs: HAM10000</h3>
-      <p class="project-desc">Multi-class skin lesion classification using the HAM10000 dermatology dataset. Explored transfer learning with pretrained CNNs and evaluated performance across 7 lesion categories.</p>
-      <div class="project-chips">
-        <span class="chip purple">Python</span>
-        <span class="chip purple">CNN</span>
-        <span class="chip purple">Transfer Learning</span>
-        <span class="chip purple">HAM10000</span>
-      </div>
-    </a>
-
-    <!-- Histopathology Cancer Detection -->
-<!-- Histopathology Cancer Detection -->
-    <a class="project-card" href="https://github.com/AjaStarkey/5511-Introduction-to-Deep-Learning-Class-Projects/blob/main/A.Starkey-Histopathology_Cancer_Detection_Cleaned.ipynb" target="_blank" style="--icon-bg: #EEE8F5;">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">MSDS-5511 · Deep Learning</p>
-      <h3 class="project-title">Metastatic Cancer Detection (CNN)</h3>
-      <p class="project-desc">CNN trained on 327,680 sentinel lymph node biopsy images (Kaggle PCam / PatchCamelyon dataset) to detect metastatic cancer spread. All patients in the dataset have cancer. The binary classification task is determining whether the cancer has invaded the lymph nodes, a critical indicator of staging and systemic spread. Implemented data augmentation and class balanced training to handle label imbalance.</p>
-      <div class="project-chips">
-        <span class="chip purple">Python</span>
-        <span class="chip purple">CNN</span>
-        <span class="chip purple">TensorFlow</span>
-        <span class="chip purple">Medical Imaging</span>
-      </div>
-    </a>
-
-    <!-- Heart Attack Prediction -->
-<!-- Heart Attack Prediction -->
-    <a class="project-card" href="https://github.com/AjaStarkey/Masters-in-Data-Science-Class-Projects/blob/main/Heart%20Attack%20Prediction%20Using%20Random%20Forest%20Supervised%20Machine%20Learning.pdf" target="_blank" style="--icon-bg: #FBF0E8;">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">Supervised Machine Learning</p>
-      <h3 class="project-title">Heart Attack Prediction with Random Forest</h3>
-      <p class="project-desc">Built and evaluated a Random Forest classifier to predict heart attack risk from patient health data. Includes full model report and reproducible code.</p>
-      <div class="project-chips">
-        <span class="chip warm">Python</span>
-        <span class="chip warm">Random Forest</span>
-        <span class="chip warm">Healthcare</span>
-      </div>
-    </a>
-
-    <!-- TNBC -->
-<!-- FEATURED: TNBC -->
-    <a class="project-card featured" href="https://github.com/AjaStarkey/DTSA-5506-Data-Mining-Project" target="_blank" style="--card-accent: #C4875A; --icon-bg: #FBF0E8;">
-      <div class="project-link-icon">&#x2197;</div>
-      
+    <article class="project-card featured flagship" style="--card-accent: var(--accent);">
       <div class="project-content">
-        <p class="project-course">Supervised Machine Learning · Capstone</p>
-        <h3 class="project-title">Triple Negative Breast Cancer Subtyping</h3>
-        <p class="project-desc">Classified TNBC molecular subtypes (BL1, BL2, M, LAR) using TCGA-BRCA RNA-seq data across 175 samples. Evaluated AutoGluon, Random Forest, XGBoost, and SVM. Best result: 40% accuracy with macro F1 of 0.361, prioritizing F1 given clinical imbalance stakes. Identified AR status as highest priority future biomarker addition.</p>
-        <div class="project-chips">
-          <span class="chip warm">Python</span>
-          <span class="chip warm">AutoGluon</span>
-          <span class="chip warm">scikit-learn</span>
-          <span class="chip warm">RNA-seq</span>
-          <span class="chip warm">Clinical ML</span>
+        <p class="project-course">01 / Featured research &middot; Biomedical machine learning</p>
+        <h3 class="project-title">A practical approach to triple-negative breast cancer subtyping</h3>
+        <p class="project-desc">Can molecular TNBC subtypes be distinguished without full transcriptome profiling? Compared clinical variables with a focused six-marker biomarker panel in 175 TCGA cases, using repeated cross-validation, per-class evaluation, and permutation testing.</p>
+        <div class="results-grid" aria-label="Six-marker random forest evaluation results">
+          <div class="result-item"><strong>0.60 <span>&plusmn; 0.08</span></strong><small>Macro F1 &middot; 25 test folds</small></div>
+          <div class="result-item"><strong>61.8%</strong><small>Cross-validated accuracy</small></div>
+          <div class="result-item"><strong>p &le; 0.01</strong><small>Label-permutation test</small></div>
         </div>
+        <p class="project-evidence"><strong>What changed:</strong> Routine clinical features alone produced macro F1 near 0.25, while the six-marker random forest reached 0.60. Validation used 5 repetitions of stratified 5-fold cross-validation. The 1,000-gene transcriptomic reference reached 0.80 macro F1.</p>
+        <p class="project-caveat"><strong>Research limitation:</strong> The marker panel was represented by corresponding mRNA expression, not measured IHC stain scores. Testing with actual IHC measurements and an external patient cohort remains necessary before clinical use.</p>
+        <div class="project-chips">
+          <span class="chip">Python</span><span class="chip">Random Forest</span><span class="chip">Macro F1</span><span class="chip">Cross-validation</span><span class="chip">Permutation testing</span>
+        </div>
+        <a class="project-text-link" href="https://github.com/AjaStarkey/DTSA-5506-Data-Mining-Project" target="_blank" rel="noopener noreferrer">Explore original project repository &#x2197;</a>
+        <p class="project-link-note">Repository contains the earlier capstone; metrics above describe the updated research analysis.</p>
       </div>
-    </a>
+    </article>
 
-    <!-- GAN Monet -->
-    <a class="project-card" href="https://github.com/AjaStarkey/5511-Introduction-to-Deep-Learning-Class-Projects/blob/main/A_Starkey_GAN_Project_Week_5.ipynb" target="_blank" style="--icon-bg: #EEE8F5;">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">MSDS-5511 · Deep Learning</p>
-      <h3 class="project-title">CycleGAN: Photo to Monet Style Transfer</h3>
-      <p class="project-desc">Implemented a CycleGAN to translate real world photographs into Monet-style paintings (Kaggle competition). Trained unpaired image to image translation without matched examples.</p>
-      <div class="project-chips">
-        <span class="chip purple">Python</span>
-        <span class="chip purple">GAN</span>
-        <span class="chip purple">Image Generation</span>
-        <span class="chip purple">Kaggle</span>
+    <article class="project-card project-secondary">
+      <div class="project-content">
+        <p class="project-course">02 / Computer vision</p>
+        <h3 class="project-title">Metastatic cancer detection from histopathology</h3>
+        <p class="project-desc">Built a convolutional neural network to classify metastatic tissue in histopathology image patches using the PatchCamelyon benchmark. Investigated augmentation and class-balanced training for medical-image classification.</p>
+        <div class="project-chips"><span class="chip purple">Python</span><span class="chip purple">TensorFlow</span><span class="chip purple">CNN</span><span class="chip purple">Medical imaging</span></div>
+        <a class="project-text-link" href="https://github.com/AjaStarkey/5511-Introduction-to-Deep-Learning-Class-Projects/blob/main/A.Starkey-Histopathology_Cancer_Detection_Cleaned.ipynb" target="_blank" rel="noopener noreferrer">Read project notebook &#x2197;</a>
       </div>
-    </a>
+    </article>
 
-    <!-- Disaster Tweet LLM -->
-<!-- Disaster Tweet LLM -->
-    <a class="project-card" href="https://github.com/AjaStarkey/5511-Introduction-to-Deep-Learning-Class-Projects/blob/main/A.Starkey-Disaster%20Tweet%20LLM.pdf" target="_blank" style="--icon-bg: #EAF0F5;">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">MSDS-5511 · Deep Learning</p>
-      <h3 class="project-title">Disaster Tweet Classification with LLMs</h3>
-      <p class="project-desc">Fine-tuned a large language model to classify tweets as real disaster events vs. non disaster. Applied to the Kaggle NLP disaster tweets dataset using DistilBERT based architecture.</p>
-      <div class="project-chips">
-        <span class="chip slate">Python</span>
-        <span class="chip slate">DistilBERT</span>
-        <span class="chip slate">NLP</span>
-        <span class="chip slate">Fine-tuning</span>
+    <article class="project-card project-secondary">
+      <div class="project-content">
+        <p class="project-course">03 / Natural language processing</p>
+        <h3 class="project-title">Disaster tweet classification with DistilBERT</h3>
+        <p class="project-desc">Applied transformer-based text classification to distinguish disaster-related tweets from non-disaster content, exploring a fine-tuned DistilBERT architecture on a public NLP benchmark.</p>
+        <div class="project-chips"><span class="chip slate">Python</span><span class="chip slate">DistilBERT</span><span class="chip slate">Transformers</span><span class="chip slate">Classification</span></div>
+        <a class="project-text-link" href="https://github.com/AjaStarkey/5511-Introduction-to-Deep-Learning-Class-Projects/blob/main/A.Starkey-Disaster%20Tweet%20LLM.pdf" target="_blank" rel="noopener noreferrer">Read project report &#x2197;</a>
       </div>
-    </a>
-
-    <!-- Supervised Text Classification -->
-<!-- Supervised Text Classification -->
-    <a class="project-card" href="https://github.com/AjaStarkey/DTSA-5798-Supervised-Text-Classification-for-Marketing-Analytics" target="_blank" style="--icon-bg: #EAF0F5;">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">DTSA-5798 · Marketing Analytics</p>
-      <h3 class="project-title">Supervised Text Classification for Marketing</h3>
-      <p class="project-desc">Health article text classification using ktrain and DistilBERT, achieving ~81% accuracy. Applied transformer-based NLP to categorize marketing content at scale.</p>
-      <div class="project-chips">
-        <span class="chip slate">Python</span>
-        <span class="chip slate">ktrain</span>
-        <span class="chip slate">DistilBERT</span>
-        <span class="chip slate">Marketing</span>
-      </div>
-    </a>
-
-    <!-- Unsupervised ML -->
-<!-- Unsupervised ML -->
-    <a class="project-card" href="https://github.com/AjaStarkey/5510-Unsupervised-Machine-Learning-Projects" target="_blank" style="--icon-bg: var(--accent-light);">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">MSDS-5510 · Unsupervised ML</p>
-      <h3 class="project-title">Unsupervised Machine Learning Projects</h3>
-      <p class="project-desc">Collection of unsupervised learning projects including PCA/NMF for gene expression cancer type prediction, recommendation systems (MovieLens collaborative filtering), clustering, and outlier detection.</p>
-      <div class="project-chips">
-        <span class="chip">Python</span>
-        <span class="chip">PCA · NMF</span>
-        <span class="chip">Clustering</span>
-        <span class="chip">Recommender Systems</span>
-      </div>
-    </a>
-
-    <!-- COVID + NYPD -->
-<!-- COVID + NYPD paired in one row -->
-    <a class="project-card" href="https://github.com/AjaStarkey/Masters-in-Data-Science-Class-Projects/blob/main/COVID-19%20Data%20Analysis.Rmd" target="_blank" style="--icon-bg: var(--accent-light);">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">Data Science Foundations</p>
-      <h3 class="project-title">COVID-19 Data Analysis</h3>
-      <p class="project-desc">Exploratory and statistical analysis of COVID-19 trends using R Markdown. Visualizes case trajectories, mortality rates, and regional patterns with ggplot2.</p>
-      <div class="project-chips">
-        <span class="chip">R</span>
-        <span class="chip">ggplot2</span>
-        <span class="chip">EDA</span>
-        <span class="chip">Public Health</span>
-      </div>
-    </a>
-
-    <a class="project-card" href="https://github.com/AjaStarkey/Masters-in-Data-Science-Class-Projects/blob/main/NYPD%20Shooting%20Analysis%20Report.pdf" target="_blank" style="--icon-bg: var(--accent-light);">
-      <div class="project-link-icon">&#x2197;</div>
-      
-      <p class="project-course">Data Science Foundations</p>
-      <h3 class="project-title">NYPD Shooting Incident Analysis</h3>
-      <p class="project-desc">Statistical analysis and geospatial visualization of NYPD shooting incident data. Includes log fold change mapping to identify borough level disparities and temporal trends.</p>
-      <div class="project-chips">
-        <span class="chip">R</span>
-        <span class="chip">Geospatial</span>
-        <span class="chip">Statistical Analysis</span>
-      </div>
-    </a>
-
+    </article>
   </div>
+  <p class="archive-note reveal">Additional experiments, coursework, and research notebooks are available on <a href="https://github.com/AjaStarkey" target="_blank" rel="noopener noreferrer">GitHub &#x2197;</a>.</p>
 </section>
-
 <div class="divider"></div>
 
 <!-- SKILLS -->
